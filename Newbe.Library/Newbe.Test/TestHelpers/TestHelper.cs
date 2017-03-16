@@ -1,9 +1,10 @@
 using System;
 using Autofac.Extras.Moq;
+using Newbe.Test.TestHelpers.Impl;
 
-namespace Newbe.Test.TestHelpers.Impl
+namespace Newbe.Test.TestHelpers
 {
-    internal class TestHelper : ITestHelper
+    public class TestHelper : ITestHelper
     {
         private readonly AutoMock _mock;
 
@@ -26,6 +27,11 @@ namespace Newbe.Test.TestHelpers.Impl
         ITestHelper ITestHelper.Setup()
         {
             return this;
+        }
+
+        public static ITestHelper Test()
+        {
+            return new TestHelper();
         }
     }
 }
