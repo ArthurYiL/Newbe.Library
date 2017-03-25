@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
+namespace Newbe.Web.Mvc.Easyui.Form
 {
     internal static class TlwHtmlAttributesBuilder
     {

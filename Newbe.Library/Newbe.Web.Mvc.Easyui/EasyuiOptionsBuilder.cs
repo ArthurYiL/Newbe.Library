@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
+namespace Newbe.Web.Mvc.Easyui
 {
     public class EasyuiOptionsBuilder : Dictionary<string, object>
     {

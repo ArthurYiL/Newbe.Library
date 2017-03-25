@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Web.Mvc;
 
-namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
+namespace Newbe.Web.Mvc.Easyui.Form
 {
     public static class HtmlFormInputExtensions
     {

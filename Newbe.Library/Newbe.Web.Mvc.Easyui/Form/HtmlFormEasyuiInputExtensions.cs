@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 
-namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
+namespace Newbe.Web.Mvc.Easyui.Form
 {
     public static class HtmlFormEasyuiInputExtensions
     {

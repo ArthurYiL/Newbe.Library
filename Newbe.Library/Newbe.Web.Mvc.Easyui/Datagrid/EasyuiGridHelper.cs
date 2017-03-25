@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 
-namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
+namespace Newbe.Web.Mvc.Easyui.Datagrid
 {
     public interface IEasyuiGridHelper<T> : IDisposable
     {
