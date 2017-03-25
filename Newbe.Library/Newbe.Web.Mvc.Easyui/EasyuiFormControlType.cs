@@ -20,6 +20,7 @@
         NumberSpinner,
         TimeSpinner,
         Slider,
-        FileBox
+        FileBox,
+        TextArea
     }
 }
