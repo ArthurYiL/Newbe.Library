@@ -2,9 +2,21 @@
 
   <PropertyGroup>
     <TargetFrameworks>net452;netstandard1.4</TargetFrameworks>
+    <Version>1.0.0-alpha1</Version>
+    <Authors>NewBe</Authors>
+    <Company>NewBe</Company>
+    <Product>Newbe.Library</Product>
+    <RepositoryUrl>https://github.com/pianzide1117/Newbe.Library</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/pianzide1117/Newbe.Library</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>easyui,web,mvc</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
   </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\NewBe.Web.Easyui\NewBe.Web.Easyui.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
