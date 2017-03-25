@@ -16,7 +16,7 @@ namespace Newbe.Web.Mvc.Easyui
     {
         private static MvcHtmlString EnumDropDownListFor<TModel, TEnum>(this HtmlHelper<TModel> htmlHelper,
             Expression<Func<TModel, TEnum>> expression, string optionLabel, IDictionary<string, object> htmlAttributes,
-            EasyuiControlType easyuiType)
+            EasyuiFormControlType easyuiFormType)
         {
             if (expression == null)
                 throw new ArgumentNullException("expression");
@@ -43,15 +43,15 @@ namespace Newbe.Web.Mvc.Easyui
                 optionLabel = (string) null;
             }
             return DropDownListHelper((HtmlHelper) htmlHelper, metadata, expressionText,
-                (IEnumerable<SelectListItem>) selectList, optionLabel, htmlAttributes, easyuiType);
+                (IEnumerable<SelectListItem>) selectList, optionLabel, htmlAttributes, easyuiFormType);
         }
 
         private static MvcHtmlString DropDownListHelper(HtmlHelper htmlHelper, ModelMetadata metadata, string expression,
             IEnumerable<SelectListItem> selectList, string optionLabel, IDictionary<string, object> htmlAttributes,
-            EasyuiControlType easyuiType)
+            EasyuiFormControlType easyuiFormType)
         {
             return SelectInternal(htmlHelper, metadata, optionLabel, expression, selectList, false, htmlAttributes,
-                easyuiType);
+                easyuiFormType);
         }
 
         private static IEnumerable<SelectListItem> GetSelectData(this HtmlHelper htmlHelper, string name)
@@ -118,7 +118,7 @@ namespace Newbe.Web.Mvc.Easyui
 
         private static MvcHtmlString SelectInternal(this HtmlHelper htmlHelper, ModelMetadata metadata,
             string optionLabel, string name, IEnumerable<SelectListItem> selectList, bool allowMultiple,
-            IDictionary<string, object> htmlAttributes, EasyuiControlType easyuiType)
+            IDictionary<string, object> htmlAttributes, EasyuiFormControlType easyuiFormType)
         {
             var fullHtmlFieldName = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName(name);
             if (string.IsNullOrEmpty(fullHtmlFieldName))
@@ -157,7 +157,7 @@ namespace Newbe.Web.Mvc.Easyui
             if (htmlHelper.ViewData.ModelState.TryGetValue(fullHtmlFieldName, out modelState) &&
                 modelState.Errors.Count > 0)
                 tagBuilder.AddCssClass(HtmlHelper.ValidationInputCssClassName);
-            tagBuilder.AddCssClass("easyui-" + easyuiType.ToString().ToLower());
+            tagBuilder.AddCssClass("easyui-" + easyuiFormType.ToString().ToLower());
             EasyuiValidationExtension.MergeEasyuiValidation(htmlHelper, metadata, name, tagBuilder);
             return tagBuilder.ToMvcHtmlString(TagRenderMode.Normal);
         }
@@ -259,7 +259,7 @@ namespace Newbe.Web.Mvc.Easyui
             IEnumerable<SelectListItem> selectList, string optionLabel, IDictionary<string, object> htmlAttributes)
         {
             return DropDownListHelper(htmlHelper, (ModelMetadata) null, name, selectList, optionLabel, htmlAttributes,
-                EasyuiControlType.Combo);
+                EasyuiFormControlType.Combo);
         }
 
 
@@ -316,7 +316,7 @@ namespace Newbe.Web.Mvc.Easyui
                 htmlHelper.ViewData);
             return DropDownListHelper((HtmlHelper) htmlHelper, metadata,
                 ExpressionHelper.GetExpressionText((LambdaExpression) expression), selectList, optionLabel,
-                htmlAttributes, EasyuiControlType.Combo);
+                htmlAttributes, EasyuiFormControlType.Combo);
         }
 
 
@@ -362,7 +362,7 @@ namespace Newbe.Web.Mvc.Easyui
         public static MvcHtmlString EasyuiEnumComboFor<TModel, TEnum>(this HtmlHelper<TModel> htmlHelper,
             Expression<Func<TModel, TEnum>> expression, string optionLabel, IDictionary<string, object> htmlAttributes)
         {
-            return EnumDropDownListFor(htmlHelper, expression, optionLabel, htmlAttributes, EasyuiControlType.Combo);
+            return EnumDropDownListFor(htmlHelper, expression, optionLabel, htmlAttributes, EasyuiFormControlType.Combo);
         }
 
 #endregion
@@ -426,7 +426,7 @@ namespace Newbe.Web.Mvc.Easyui
             IEnumerable<SelectListItem> selectList, string optionLabel, IDictionary<string, object> htmlAttributes)
         {
             return DropDownListHelper(htmlHelper, (ModelMetadata) null, name, selectList, optionLabel, htmlAttributes,
-                EasyuiControlType.ComboBox);
+                EasyuiFormControlType.ComboBox);
         }
 
 
@@ -483,7 +483,7 @@ namespace Newbe.Web.Mvc.Easyui
                 htmlHelper.ViewData);
             return DropDownListHelper((HtmlHelper) htmlHelper, metadata,
                 ExpressionHelper.GetExpressionText((LambdaExpression) expression), selectList, optionLabel,
-                htmlAttributes, EasyuiControlType.ComboBox);
+                htmlAttributes, EasyuiFormControlType.ComboBox);
         }
 
 
@@ -529,7 +529,7 @@ namespace Newbe.Web.Mvc.Easyui
         public static MvcHtmlString EasyuiEnumComboBoxFor<TModel, TEnum>(this HtmlHelper<TModel> htmlHelper,
             Expression<Func<TModel, TEnum>> expression, string optionLabel, IDictionary<string, object> htmlAttributes)
         {
-            return EnumDropDownListFor(htmlHelper, expression, optionLabel, htmlAttributes, EasyuiControlType.ComboBox);
+            return EnumDropDownListFor(htmlHelper, expression, optionLabel, htmlAttributes, EasyuiFormControlType.ComboBox);
         }
 
 #endregion
@@ -593,7 +593,7 @@ namespace Newbe.Web.Mvc.Easyui
             IEnumerable<SelectListItem> selectList, string optionLabel, IDictionary<string, object> htmlAttributes)
         {
             return DropDownListHelper(htmlHelper, (ModelMetadata) null, name, selectList, optionLabel, htmlAttributes,
-                EasyuiControlType.ComboTree);
+                EasyuiFormControlType.ComboTree);
         }
 
 
@@ -650,7 +650,7 @@ namespace Newbe.Web.Mvc.Easyui
                 htmlHelper.ViewData);
             return DropDownListHelper((HtmlHelper) htmlHelper, metadata,
                 ExpressionHelper.GetExpressionText((LambdaExpression) expression), selectList, optionLabel,
-                htmlAttributes, EasyuiControlType.ComboTree);
+                htmlAttributes, EasyuiFormControlType.ComboTree);
         }
 
         public static MvcHtmlString EasyuiComboTreeFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper,

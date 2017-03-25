@@ -1,14 +1,16 @@
 ﻿namespace Newbe.Web.Mvc.Easyui
 {
-    public enum EasyuiControlType
+    public enum EasyuiFormControlType
     {
         ValidateBox,
         TextBox,
-        TextArea,
+        PasswordBox,
         Combo,
         ComboBox,
         ComboTree,
         ComboGrid,
+        ComboTreeGrid,
+        TagBox,
         NumberBox,
         DateBox,
         DatetimeBox,
@@ -17,5 +19,7 @@
         Spinner,
         NumberSpinner,
         TimeSpinner,
+        Slider,
+        FileBox
     }
 }

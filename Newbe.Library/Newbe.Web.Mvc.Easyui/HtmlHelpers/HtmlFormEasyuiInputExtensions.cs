@@ -59,7 +59,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
             var htmlHelper = htmlForm.HtmlHelper;
             return EasyuiInputExtension.EasyuiInputHelper(htmlHelper, (ModelMetadata) null, name, value, value == null,
                 true,
-                true, format, htmlAttributes, EasyuiControlType.TextBox);
+                true, format, htmlAttributes, EasyuiFormControlType.TextBox);
         }
 
         public static MvcHtmlString EasyuiTextBoxFor<TModel, TProperty>(this IHtmlForm<TModel> htmlForm,
@@ -117,7 +117,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
         {
             return EasyuiInputExtension.EasyuiInputHelper(htmlForm.HtmlHelper, metadata, expression, model, false, true,
                 true,
-                format, htmlAttributes, EasyuiControlType.TextBox);
+                format, htmlAttributes, EasyuiFormControlType.TextBox);
         }
 
         #endregion
@@ -173,7 +173,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
             var htmlHelper = htmlForm.HtmlHelper;
             return EasyuiInputExtension.EasyuiInputHelper(htmlHelper, (ModelMetadata) null, name, value, value == null,
                 true,
-                true, format, htmlAttributes, EasyuiControlType.ValidateBox);
+                true, format, htmlAttributes, EasyuiFormControlType.ValidateBox);
         }
 
         public static MvcHtmlString EasyuiValidateBoxFor<TModel, TProperty>(this IHtmlForm<TModel> htmlForm,
@@ -232,7 +232,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
         {
             var htmlHelper = htmlForm.HtmlHelper;
             return EasyuiInputExtension.EasyuiInputHelper(htmlHelper, metadata, expression, model, false, true, true,
-                format, htmlAttributes, EasyuiControlType.ValidateBox);
+                format, htmlAttributes, EasyuiFormControlType.ValidateBox);
         }
 
         #endregion
@@ -288,7 +288,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
             var htmlHelper = htmlForm.HtmlHelper;
             return EasyuiInputExtension.EasyuiInputHelper(htmlHelper, (ModelMetadata) null, name, value, value == null,
                 true,
-                true, format, htmlAttributes, EasyuiControlType.DateBox);
+                true, format, htmlAttributes, EasyuiFormControlType.DateBox);
         }
 
         public static MvcHtmlString EasyuiDateBoxFor<TModel, TProperty>(this IHtmlForm<TModel> htmlForm,
@@ -346,7 +346,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
         {
             var htmlHelper = htmlForm.HtmlHelper;
             return EasyuiInputExtension.EasyuiInputHelper(htmlHelper, metadata, expression, model, false, true, true,
-                format, htmlAttributes, EasyuiControlType.DateBox);
+                format, htmlAttributes, EasyuiFormControlType.DateBox);
         }
 
         #endregion
@@ -402,7 +402,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
             var htmlHelper = htmlForm.HtmlHelper;
             return EasyuiInputExtension.EasyuiInputHelper(htmlHelper, (ModelMetadata) null, name, value, value == null,
                 true,
-                true, format, htmlAttributes, EasyuiControlType.DatetimeBox);
+                true, format, htmlAttributes, EasyuiFormControlType.DatetimeBox);
         }
 
         #endregion
@@ -458,7 +458,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
             var htmlHelper = htmlForm.HtmlHelper;
             return EasyuiInputExtension.EasyuiInputHelper(htmlHelper, (ModelMetadata) null, name, value, value == null,
                 true,
-                true, format, htmlAttributes, EasyuiControlType.TextArea);
+                true, format, htmlAttributes, EasyuiFormControlType.TextArea);
         }
 
         public static MvcHtmlString EasyuiTextAreaFor<TModel, TProperty>(this IHtmlForm<TModel> htmlForm,
@@ -516,7 +516,7 @@ namespace Newbe.Web.Mvc.Easyui.HtmlHelpers
         {
             var htmlHelper = htmlForm.HtmlHelper;
             return EasyuiInputExtension.EasyuiInputHelper(htmlHelper, metadata, expression, model, false, true, true,
-                format, htmlAttributes, EasyuiControlType.TextArea);
+                format, htmlAttributes, EasyuiFormControlType.TextArea);
         }
 
         #endregion
