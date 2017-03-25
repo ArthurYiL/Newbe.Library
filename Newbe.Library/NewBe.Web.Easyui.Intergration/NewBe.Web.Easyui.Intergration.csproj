@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\js\easyui.defaults.js" />
+    <Content Include="wwwroot\lib\easyui\jquery.easyui.min.js" />
+    <Content Include="wwwroot\lib\easyui\themes\color.css" />
+    <Content Include="wwwroot\lib\easyui\themes\default\easyui.css" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\accordion_arrows.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\blank.gif" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\calendar_arrows.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\combo_arrow.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\datagrid_icons.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\datebox_arrow.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\layout_arrows.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\linkbutton_bg.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\loading.gif" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\menu_arrows.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\messager_icons.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\pagination_icons.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\panel_tools.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\passwordbox_close.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\passwordbox_open.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\searchbox_button.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\slider_handle.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\spinner_arrows.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\tabs_icons.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\tagbox_icons.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\tree_icons.png" />
+    <Content Include="wwwroot\lib\easyui\themes\default\images\validatebox_warning.png" />
+    <Content Include="wwwroot\lib\easyui\themes\icon.css" />
+    <Content Include="wwwroot\lib\underscore\underscore-min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NewBe.Web.Easyui\NewBe.Web.Easyui.csproj" />
+    <ProjectReference Include="..\Newbe.Web.Mvc.Easyui\Newbe.Web.Mvc.Easyui.csproj" />
+  </ItemGroup>
+
+</Project>

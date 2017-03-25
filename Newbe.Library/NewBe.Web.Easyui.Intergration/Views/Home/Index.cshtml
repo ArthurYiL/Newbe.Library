@@ -1,0 +1,117 @@
+﻿@using Newbe.Web.Mvc.Easyui.Extensions
+@using NewBe.Web.Easyui
+@{
+    ViewData["Title"] = "Home Page";
+}
+@functions{
+    public string GetHtmlId(string idbase) => $"{idbase}{Guid.NewGuid():N}";
+}
+@{
+    var gridId = GetHtmlId("studentGrid");
+    var toolbarId = GetHtmlId("studentGridToolbar");
+    var gradeId = GetHtmlId("gradeddl");
+    var classesId = GetHtmlId("classes");
+    var formId = GetHtmlId("form");
+    var clearButtomId = GetHtmlId("clearBtn");
+    var searchButtonId = GetHtmlId("searchBtn");
+}
+<div class="easyui-layout">
+    <div class="easyui-panel" data-options="region:'center'">
+        <div id="@toolbarId">
+            <form id="@formId">
+                Grade : <select id="@gradeId" name="gradeId" class="easyui-combobox" ></select>
+                Classes : <select id="@classesId" name="classId" class="easyui-combobox" ></select>
+                <a id="@clearButtomId" href="javascript:void(0)" class="easyui-linkbutton">Clear</a>
+                <a id="@searchButtonId" href="javascript:void(0)" class="easyui-linkbutton">Search</a>
+            </form>
+        </div>
+        <table class="easyui-datagrid" id="@gridId">
+            <thead>
+            <tr>
+                <th data-options="field:'name',width:50,sortable:true">Name</th>
+                <th data-options="field:'sex',width:50,sortable:true">Sex</th>
+                <th data-options="field:'className',width:50,sortable:true">ClassName</th>
+                <th data-options="field:'gradeName',width:50,sortable:true">GradeName</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+
+        (function(root, $, factory) {
+            root.studentGrid = factory($);
+        })(window,
+            $,
+            function($) {
+                var gridId = "#@gridId";
+                var exports = {};
+                exports = $.extend(exports,
+                {
+                    init: function() {
+                        $(gridId).datagrid({
+                            url: '@Url.Action("Students", new {accept = EasyuiAcceptType.Datagrid})',
+                            pagination: true,
+                            toolbar: '#@toolbarId'
+                        });
+                    },
+                    reload: function(qs) {
+                        $(gridId).datagrid("load", qs);
+                    }
+                });
+                return exports;
+            });
+
+        (function(root, $, _, grid, factory) {
+            root.studentGridToolBar = factory($, _, grid);
+        })(window,
+            jQuery,
+            _,
+            window.studentGrid,
+            function($, _, grid) {
+                var formId = "#@formId";
+                var gradeId = "#@gradeId";
+                var classesId = "#@classesId";
+                var exports = {};
+                var gridReload = function() {
+                    var data = $(formId).serializeArray();
+                    var qs = _.object(_.pluck(data, 'name'), _.pluck(data, 'value'));
+                    grid.reload(qs);
+                }
+                exports = $.extend(exports,
+                {
+                    init: function() {
+                        $(gradeId).combobox({
+                            url: '@Url.EasyuiAccept(EasyuiAcceptType.Combobox).Action("Grades", new {accept = EasyuiAcceptType.Combobox})',
+                            onSelect: function(newItem) {
+                                $(classesId)
+                                    .combobox("clear")
+                                    .combobox("reload",'@Url.Action("Classes", new {accept = EasyuiAcceptType.Combobox})&' +
+                                    $.param({
+                                        gradeId: newItem.value
+                                    }));
+                            }
+                        });
+                        $(classesId).combobox({
+                            url: '@Url.Action("Classes", new {accept = EasyuiAcceptType.Combobox})'
+                        });
+                        $("#@searchButtonId").click(function () {
+                            gridReload();
+                        });
+                        $("#@clearButtomId").click(function () {
+                            $(formId).form('clear');
+                            gridReload();
+                        });
+                    }
+                });
+                return exports;
+            });
+
+        $(function() {
+            window.studentGrid.init();
+            window.studentGridToolBar.init();
+        });
+    </script>
+}
