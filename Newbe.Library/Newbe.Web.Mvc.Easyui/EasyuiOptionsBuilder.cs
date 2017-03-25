@@ -1,5 +1,4 @@
-﻿
-#if NET452
+﻿#if NET452
 using System.Collections.Generic;
 using System.Text;
 
