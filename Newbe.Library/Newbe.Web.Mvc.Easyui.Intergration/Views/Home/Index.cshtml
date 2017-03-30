@@ -1,1 +1,36 @@
-﻿
+﻿@using Newbe.Web.Mvc.Easyui
+@using Newbe.Web.Mvc.Easyui.Datagrid.Extensions
+@using Newbe.Web.Mvc.Easyui.Form.Extensions
+@using Newbe.Web.Mvc.Easyui.Options
+@using Newbe.Web.Mvc.Easyui.Intergration.Models
+@Html.NewBe().Easyui().ValidateBox()
+@Html.NewBe().Easyui().ValidateBox(new ValidateBoxOptions())
+@Html.NewBe().Easyui().ValidateBox(new ValidateBoxOptions(),new {id = "id"})
+
+
+@Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name)
+@Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name, new ValidateBoxOptions())
+@Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name, out var id3)
+@Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name, out var id4, new ValidateBoxOptions())
+
+@Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name)
+@Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name, new ValidateBoxOptions())
+@Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name, out var id5)
+@Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name, out var id6, new ValidateBoxOptions())
+
+@using (var grid = Html.NewBe().Easyui(new Student()).Datagrid(out string gridId, new EasyuiDatagridOptions()))
+{
+    @grid.ColumnFor(x => x.Id)
+    @grid.ColumnFor(x => x.Name)
+    @grid.ColumnFor(x => x.Age)
+}
+
+@using (var form = Html.NewBe().Form())
+{
+
+}
+
+@using (var form = Html.NewBe(new Student()).Form())
+{
+    @form.Easyui().ValidateBoxFor(x=>x.Name)
+}

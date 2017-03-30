@@ -1,32 +1,41 @@
-﻿#if NET452
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Mvc;
+using Newbe.Web.Mvc.Easyui;
 
 namespace Newbe.Web.Mvc.Easyui
 {
     public static class EasyuiHtmlHelperExtensions
     {
-        public static IEasyuiHtmlHelper Easyui(this HtmlHelper helper)
+        public static IEasyuiHtmlHelper Easyui(this INewbeHtmlHelper helper)
         {
             throw new NotImplementedException();
         }
 
-        public static IEasyuiHtmlHelper<TModel> Easyui<TModel>(this HtmlHelper helper, TModel model)
+        public static IEasyuiHtmlHelper<TModel> Easyui<TModel>(this INewbeHtmlHelper helper, TModel model)
             where TModel : class
         {
             throw new NotImplementedException();
         }
 
-        public static IEasyuiHtmlHelper<TModel> Easyui<TModel>(this HtmlHelper helper) where TModel : class
+        public static IEasyuiHtmlHelper<TModel> Easyui<TModel>(this INewbeHtmlHelper helper)
+            where TModel : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public static IEasyuiHtmlHelper<TModel> Easyui<TModel>(this INewbeHtmlHelper<TModel> helper, TModel model)
+            where TModel : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public static IEasyuiHtmlHelper<TModel> Easyui<TModel>(this INewbeHtmlHelper<TModel> helper)
+            where TModel : class
         {
             throw new NotImplementedException();
         }
     }
 }
-
-#endif

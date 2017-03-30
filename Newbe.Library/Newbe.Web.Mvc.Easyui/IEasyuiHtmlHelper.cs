@@ -2,10 +2,19 @@
 
 namespace Newbe.Web.Mvc.Easyui
 {
+    public interface INewbeHtmlHelper
+    {
+    }
+
+    public interface INewbeHtmlHelper<TModel> : INewbeHtmlHelper where TModel : class
+    {
+    }
+
+
     /// <summary>
     /// HtmlHelper for Easyui
     /// </summary>
-    public interface IEasyuiHtmlHelper
+    public interface INewbeInlineHtmlHelper : INewbeHtmlHelper
     {
     }
 
@@ -13,14 +22,15 @@ namespace Newbe.Web.Mvc.Easyui
     /// HtmlHelper for Easyui
     /// </summary>
     /// <typeparam name="TModel"></typeparam>
-    public interface IEasyuiHtmlHelper<TModel> : IEasyuiHtmlHelper where TModel : class
+    public interface INewbeInlineHtmlHelper<TModel> : INewbeInlineHtmlHelper, INewbeHtmlHelper<TModel>
+        where TModel : class
     {
     }
 
     /// <summary>
     /// HtmlHelper for Easyui
     /// </summary>
-    public interface IEasyuiInlineHtmlHelper : IEasyuiHtmlHelper
+    public interface INewbeHtmlContainerHelper : INewbeHtmlHelper, IDisposable
     {
     }
 
@@ -28,14 +38,47 @@ namespace Newbe.Web.Mvc.Easyui
     /// HtmlHelper for Easyui
     /// </summary>
     /// <typeparam name="TModel"></typeparam>
-    public interface IEasyuiInlineHtmlHelper<TModel> : IEasyuiHtmlHelper<TModel> where TModel : class
+    public interface INewbeHtmlContainerHelper<TModel> : INewbeHtmlContainerHelper, INewbeHtmlHelper<TModel>
+        where TModel : class
+    {
+    }
+
+
+    /// <summary>
+    /// HtmlHelper for Easyui
+    /// </summary>
+    public interface IEasyuiHtmlHelper : INewbeHtmlHelper
     {
     }
 
     /// <summary>
     /// HtmlHelper for Easyui
     /// </summary>
-    public interface IEasyuiHtmlContainerHelper : IEasyuiHtmlHelper, IDisposable
+    /// <typeparam name="TModel"></typeparam>
+    public interface IEasyuiHtmlHelper<TModel> : IEasyuiHtmlHelper, INewbeHtmlHelper<TModel> where TModel : class
+    {
+    }
+
+    /// <summary>
+    /// HtmlHelper for Easyui
+    /// </summary>
+    public interface IEasyuiInlineHtmlHelper : INewbeInlineHtmlHelper
+    {
+    }
+
+    /// <summary>
+    /// HtmlHelper for Easyui
+    /// </summary>
+    /// <typeparam name="TModel"></typeparam>
+    public interface IEasyuiInlineHtmlHelper<TModel> : IEasyuiInlineHtmlHelper, IEasyuiHtmlHelper<TModel>
+        where TModel : class
+    {
+    }
+
+    /// <summary>
+    /// HtmlHelper for Easyui
+    /// </summary>
+    public interface IEasyuiHtmlContainerHelper : INewbeHtmlContainerHelper
     {
     }
 
