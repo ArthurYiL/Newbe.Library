@@ -4,19 +4,19 @@
 @using Newbe.Web.Mvc.Easyui.Options
 @using Newbe.Web.Mvc.Easyui.Intergration.Models
 @Html.NewBe().Easyui().ValidateBox()
-@Html.NewBe().Easyui().ValidateBox(new ValidateBoxOptions())
-@Html.NewBe().Easyui().ValidateBox(new ValidateBoxOptions(),new {id = "id"})
+@Html.NewBe().Easyui().ValidateBox(new EasyuiValidateBoxOptions())
+@Html.NewBe().Easyui().ValidateBox(new EasyuiValidateBoxOptions(),new {id = "id"})
 
 
 @Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name)
-@Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name, new ValidateBoxOptions())
+@Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name, new EasyuiValidateBoxOptions())
 @Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name, out var id3)
-@Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name, out var id4, new ValidateBoxOptions())
+@Html.NewBe().Easyui(new Student()).ValidateBoxFor(x => x.Name, out var id4, new EasyuiValidateBoxOptions())
 
 @Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name)
-@Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name, new ValidateBoxOptions())
+@Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name, new EasyuiValidateBoxOptions())
 @Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name, out var id5)
-@Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name, out var id6, new ValidateBoxOptions())
+@Html.NewBe(new Student()).Easyui().ValidateBoxFor(x => x.Name, out var id6, new EasyuiValidateBoxOptions())
 
 @using (var grid = Html.NewBe().Easyui(new Student()).Datagrid(out string gridId, new EasyuiDatagridOptions()))
 {
