@@ -21,6 +21,7 @@ namespace Newbe.Test.TestHelpers.Impl
 
         void ITestAssertion<TService>.Assert(Action<TService> assertAction)
         {
+            _doAction();
             assertAction(_service);
         }
 
