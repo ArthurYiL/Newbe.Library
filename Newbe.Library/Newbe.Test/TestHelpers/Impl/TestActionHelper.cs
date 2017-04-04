@@ -11,14 +11,15 @@ namespace Newbe.Test.TestHelpers.Impl
             _service = service;
         }
 
-        ITestAssertion ITestActionHelper<TInterface>.DoAction(Action<TInterface> doAction)
+        ITestAssertion<TInterface> ITestActionHelper<TInterface>.DoAction(Action<TInterface> doAction)
         {
-            return new TestAssertion(() => doAction(_service));
+            return new TestAssertion<TInterface>(() => doAction(_service), _service);
         }
 
-        ITestAssertion<TResult> ITestActionHelper<TInterface>.DoAction<TResult>(Func<TInterface, TResult> doAction)
+        ITestAssertion<TInterface, TResult> ITestActionHelper<TInterface>.DoAction<TResult>(
+            Func<TInterface, TResult> doAction)
         {
-            return new TestAssertion<TResult>(() => doAction(_service));
+            return new TestAssertion<TInterface, TResult>(() => doAction(_service), _service);
         }
     }
 }

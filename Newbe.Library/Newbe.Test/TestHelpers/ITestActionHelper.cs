@@ -4,8 +4,8 @@ namespace Newbe.Test.TestHelpers
 {
     public interface ITestActionHelper<out TInterface>
     {
-        ITestAssertion DoAction(Action<TInterface> doAction);
+        ITestAssertion<TInterface> DoAction(Action<TInterface> doAction);
 
-        ITestAssertion<TResult> DoAction<TResult>(Func<TInterface, TResult> doAction);
+        ITestAssertion<TInterface, TResult> DoAction<TResult>(Func<TInterface, TResult> doAction);
     }
 }
